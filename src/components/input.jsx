@@ -8,7 +8,7 @@ const Input = React.forwardRef(function Input(
   return (
     <div className="w-full">
       {label && (
-        <label className="inline-block mb-1 pl-1" htmlFor={d}>
+        <label className="inline-block mb-1 pl-1" htmlFor={id}>
           {label}
         </label>
       )}
@@ -23,4 +23,4 @@ const Input = React.forwardRef(function Input(
     </div>
   );
 });
-export default input;
+export default Input;
