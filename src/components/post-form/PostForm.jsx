@@ -59,7 +59,7 @@ export default function PostForm({ post }) {
 
         return "";
     }, []);
-se
+
 
     return (
         <form onSubmit={handleSubmit(submit)} className="flex flex-wrap">
