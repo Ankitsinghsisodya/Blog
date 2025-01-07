@@ -60,6 +60,15 @@ export default function PostForm({ post }) {
         return "";
     }, []);
 
+    React.useEffect(() => {
+        const subscription = watch((value, { name }) => {
+            if (name === "title") {
+                setValue("slug", slugTransform(value.title), { shouldValidate: true });
+            }
+        });
+
+        return () => subscription.unsubscribe();
+    }, [watch, slugTransform, setValue]);
 
     return (
         <form onSubmit={handleSubmit(submit)} className="flex flex-wrap">
@@ -91,6 +100,7 @@ export default function PostForm({ post }) {
                 />
                 {post && (
                     <div className="w-full mb-4">
+                   { console.log(appwriteService.getFilePreview(post.featuredImage))}
                         <img
                             src={appwriteService.getFilePreview(post.featuredImage)}
                             alt={post.title}

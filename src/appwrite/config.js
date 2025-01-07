@@ -26,7 +26,10 @@ export class Service{
                     featuredImage,
                     status,
                     userId,
-                }
+                },
+                [
+                    Permission.read(Role.any()),                  // Anyone can view this document
+                ]
             )
         } catch (error) {
             console.log("Appwrite serive :: createPost :: error", error);
@@ -125,10 +128,11 @@ export class Service{
     }
 
     getFilePreview(fileId){
-        return this.bucket.getFilePreview(
+        const temp = this.bucket.getFileView(
             conf.appwriteBucketId,
             fileId
-        )
+        );
+        return  temp;
     }
 }
 
