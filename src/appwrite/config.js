@@ -27,9 +27,9 @@ export class Service{
                     status,
                     userId,
                 },
-                [
-                    Permission.read(Role.any()),                  // Anyone can view this document
-                ]
+                // [
+                //     Permission.read(Role.any()),                  // Anyone can view this document
+                // ]
             )
         } catch (error) {
             console.log("Appwrite serive :: createPost :: error", error);
